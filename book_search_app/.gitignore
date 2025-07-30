@@ -1,0 +1,27 @@
+# Node dependencies
+node_modules/
+npm-debug.log
+yarn.lock
+.env
+
+# Docker artifacts
+*.log
+Dockerfile*
+docker-compose*
+docker-compose.override.yml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Build and dist folders
+dist/
+build/
+
+# Other
+*.local
+*.env
+.env.local

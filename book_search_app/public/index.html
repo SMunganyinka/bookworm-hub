@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Book Search</h1>
+            <p>Discover books using Google Books API</p>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for books, authors, or topics..." />
+                    <button id="searchBtn">Search Books</button>
+                </div>
+                
+                <div class="search-options">
+                    <select id="searchType">
+                        <option value="general">General Search</option>
+                        <option value="title">Search by Title</option>
+                        <option value="author">Search by Author</option>
+                        <option value="subject">Search by Subject</option>
+                    </select>
+                    
+                    <select id="maxResults">
+                        <option value="10">10 results</option>
+                        <option value="20">20 results</option>
+                        <option value="30">30 results</option>
+                        <option value="40">40 results</option>
+                    </select>
+                </div>
+
+                <div class="popular-categories">
+                    <h3>Popular Categories</h3>
+                    <div class="category-buttons">
+                        <button class="category-btn" data-category="fiction">Fiction</button>
+                        <button class="category-btn" data-category="science">Science</button>
+                        <button class="category-btn" data-category="history">History</button>
+                        <button class="category-btn" data-category="technology">Technology</button>
+                        <button class="category-btn" data-category="biography">Biography</button>
+                        <button class="category-btn" data-category="self-help">Self Help</button>
+                    </div>
+                </div>
+            </div>
+
+           <div id="loadingIndicator" class="loading hidden">
+            <div class="spinner"></div>
+           <p>Searching for books...</p>
+           </div>
+
+
+            <div id="error" class="error hidden">
+                <p id="errorMessage"></p>
+            </div>
+
+            <div id="searchResults" class="results-section hidden">
+                <div class="results-header">
+                    <h2 id="resultsTitle"></h2>
+                    <p id="resultsCount"></p>
+                    <div class="sort-options">
+                        <label for="sortBy">Sort by:</label>
+                        <select id="sortBy">
+                            <option value="relevance">Relevance</option>
+                            <option value="title">Title</option>
+                            <option value="author">Author</option>
+                            <option value="published">Published Date</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="booksList" class="books-grid"></div>
+            </div>
+
+            <div id="bookModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="bookDetails" class="book-details"></div>
+                </div>
+            </div>
+
+            <div class="search-history">
+                <h3>Recent Searches</h3>
+                <div id="recentSearches" class="recent-list"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Google Books API | Server: <span id="serverInfo">Loading...</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
