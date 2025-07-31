@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  web-01:
+    build: ./backend   # Uses your local Dockerfile
+    container_name: web-01
+    ports:
+      - "2211:22"
+      - "8081:8080"
+    environment:
+      - SERVER_NAME=web-01
+    networks:
+      - webnet
+
+  web-02:
+    build: ./backend   # Also uses local Dockerfile
+    container_name: web-02
+    ports:
+      - "2212:22"
+      - "8082:8080"
+    environment:
+      - SERVER_NAME=web-02
+    networks:
+      - webnet
+
+  lb-01:
+    image: haproxy:latest
+    container_name: lb-01
+    ports:
+      - "2210:22"
+      - "80:8080"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

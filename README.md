@@ -11,6 +11,16 @@ A full-stack web application to search for books by title, author, or category u
 This application allows users to search for books by keyword or category and view detailed book information. It utilizes the Google Books API for data. The backend is containerized with Docker and load balanced using HAProxy across two backend instances to ensure high availability and fault tolerance.
 
 ---
+ ## 📽️ Demo Live
+
+🔗 [Click here to watch the demo video](https://www.youtube.com/watch?v=tKkS-Lykxng)
+
+---
+
+## 📽️ Demo
+
+🔗 [Click here to watch the demo](https://bookworm-hub-c6m3.onrender.com/)
+---
 
 ## Features
 
@@ -86,7 +96,7 @@ On lb-01, run the HAProxy container with the provided haproxy.cfg configuration 
 API Documentation
 This app uses the Google Books API to fetch book data.
 
-Your app exposes these backend API endpoints:
+My app exposes these backend API endpoints:
 
 GET /api/status
 Returns service health and which backend server handled the request.
